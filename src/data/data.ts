@@ -186,7 +186,7 @@ export const races: Race[] = [
     time: '00:27:29',
     pace: '04:34',
     distance: 6,
-    distanceType: 'trail',
+    distanceType: '5K',
     terrain: 'trail',
     name: 'CCMA TV3',
     location: 'Barcelona',
@@ -318,7 +318,7 @@ export const races: Race[] = [
     time: '00:33:46',
     pace: '04:13',
     distance: 8,
-    distanceType: 'trail',
+    distanceType: '5K',
     terrain: 'trail',
     name: 'La Barbuda Vilassar',
     location: 'Vilassar de Mar',
@@ -517,7 +517,7 @@ export const races: Race[] = [
     upcoming: false
   },
   {
-    id: '3676834309120983289',
+    id: '3676834309145983289',
     date: '2025-01-26',
     time: '00:42:30',
     pace: '04:15',
