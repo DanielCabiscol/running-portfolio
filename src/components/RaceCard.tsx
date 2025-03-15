@@ -21,7 +21,7 @@ export const RaceCard: React.FC<RaceCardProps> = ({ race, isDark }) => {
   return (
     <motion.div 
       className={`${
-        isDark ? 'bg-gray-800' : 'bg-white'
+        isDark ? 'bg-gray-700' : 'bg-white'
       } rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300`}
       whileHover={{ scale: 1.02 }}
       initial={{ opacity: 0, y: 20 }}

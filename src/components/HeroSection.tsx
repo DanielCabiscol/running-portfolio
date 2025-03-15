@@ -60,7 +60,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ info, isDark }) => {
                 href={info.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg hover:from-amber-600 hover:to-amber-700 transition-all duration-300 text-white"
+                className="px-4 py-2 bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 rounded-lg hover:from-fuchsia-600 hover:to-fuchsia-700 transition-all duration-300 text-white"
               >
                 Instagram
               </a>
@@ -76,7 +76,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ info, isDark }) => {
                 href={info.social.championchip}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-white"
+                className="px-4 py-2 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 text-white"
               >
                 Championchip
               </a>
