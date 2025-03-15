@@ -12,20 +12,31 @@ interface RaceListProps {
 
 type ViewMode = 'cards' | 'table';
 
+const filterRaces =(racesToFilter: Race[], search: string, selectedTerrain: TerrainType | 'all', selectedDistance: RaceDistance | 'all')=> racesToFilter.filter(race => {
+  const matchesSearch = race.name?.toLowerCase().includes(search.toLowerCase()) ||
+                       race.location?.toLowerCase().includes(search.toLowerCase());
+  const matchesTerrain = selectedTerrain === 'all' || race.terrain === selectedTerrain;
+  const matchesDistance = selectedDistance === 'all' || race.distanceType === selectedDistance;
+  
+  return matchesSearch && matchesTerrain && matchesDistance;
+});
+
+const sortRacesByDate = (races: Race[]) => {
+  return races.sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB.getTime() - dateA.getTime();
+  })
+};
+
 export const RaceList: React.FC<RaceListProps> = ({ races, isDark }) => {
   const [search, setSearch] = useState('');
   const [selectedTerrain, setSelectedTerrain] = useState<TerrainType | 'all'>('all');
   const [selectedDistance, setSelectedDistance] = useState<RaceDistance | 'all'>('all');
   const [viewMode, setViewMode] = useState<ViewMode>('cards');
+  const anyFilterEnabled = selectedTerrain !== 'all' || selectedDistance !== 'all' || search !== '';
 
-  const filteredRaces = races.filter(race => {
-    const matchesSearch = race.name?.toLowerCase().includes(search.toLowerCase()) ||
-                         race.location?.toLowerCase().includes(search.toLowerCase());
-    const matchesTerrain = selectedTerrain === 'all' || race.terrain === selectedTerrain;
-    const matchesDistance = selectedDistance === 'all' || race.distanceType === selectedDistance;
-    
-    return matchesSearch && matchesTerrain && matchesDistance;
-  });
+  const filteredRaces = anyFilterEnabled ? sortRacesByDate(filterRaces(races, search, selectedTerrain, selectedDistance)) : sortRacesByDate(races); 
 
   return (
     <div className={`py-12 ${isDark ? 'bg-gray-800' : 'bg-gray-100'}`}>

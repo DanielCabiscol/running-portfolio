@@ -32,7 +32,7 @@ export const RaceCard: React.FC<RaceCardProps> = ({ race, isDark }) => {
         <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
           {race.name}
         </h3>
-        <span className="px-3 py-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-full text-sm">
+        <span className="px-3 py-1 bg-gradient-to-r whitespace-nowrap from-amber-500 to-amber-600 text-white rounded-full text-sm">
           {race.distanceType}
         </span>
       </div>
