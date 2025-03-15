@@ -26,7 +26,7 @@ export const Highlights: React.FC<HighlightsProps> = ({ races }) => {
             const bestRace = getBestTime(category);
             return (
               <div key={category} className="bg-gray-800 rounded-lg p-6 text-center">
-                <h3 className="text-xl font-semibold text-white mb-4">{category}</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">🥇{category}</h3>
                 {bestRace ? (
                   <div className="space-y-2 text-gray-300">
                     <p className="text-2xl font-bold text-blue-400">{bestRace.time}</p>

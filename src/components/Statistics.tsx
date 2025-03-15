@@ -59,7 +59,7 @@ export const Statistics: React.FC<StatisticsProps> = ({ races }) => {
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-white mb-8">Monthly Distance</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Monthly Race Distance</h2>
             <div className="h-[400px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={monthlyData}>
