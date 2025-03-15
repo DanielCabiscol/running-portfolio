@@ -62,26 +62,14 @@ export const races: Race[] = [
 export const upcomingRaces: Race[] = [
   {
     id: 'u1',
-    date: '2024-04-15',
+    date: '2025-04-06',
     time: '--:--:--',
     pace: '--:--',
-    distance: 21.1,
-    distanceType: 'half-marathon',
-    terrain: 'road',
-    name: 'Barcelona Half Marathon',
-    location: 'Barcelona',
-    upcoming: true
-  },
-  {
-    id: 'u2',
-    date: '2024-05-20',
-    time: '--:--:--',
-    pace: '--:--',
-    distance: 10,
-    distanceType: '10K',
-    terrain: 'road',
-    name: 'Cursa Vila Olímpica',
-    location: 'Barcelona',
+    distance: 11,
+    distanceType: 'trail',
+    terrain: 'trail',
+    name: 'Vilatrail 2025',
+    location: 'Vilassar de Dalt',
     upcoming: true
   }
 ];

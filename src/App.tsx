@@ -6,7 +6,7 @@ import { Statistics } from './components/Statistics';
 import { RunningShoes } from './components/RunningShoes';
 import { UpcomingRaces } from './components/UpcomingRaces';
 import { ThemeToggle } from './components/ThemeToggle';
-import { personalInfo, races, runningShoes, upcomingRaces } from './data/mockData';
+import { personalInfo, races, runningShoes, upcomingRaces } from './data/data';
 
 function App() {
   const [isDark, setIsDark] = useState(true);

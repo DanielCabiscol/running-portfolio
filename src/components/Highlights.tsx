@@ -1,5 +1,5 @@
 import React from 'react';
-import { Race } from '../types';
+import type { Race } from '../types';
 
 interface HighlightsProps {
   races: Race[];
