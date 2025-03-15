@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PersonalInfo } from '../types';
+import type { PersonalInfo } from '../types';
+import avatar from '../images/profile.webp';
 
 interface HeroSectionProps {
   info: PersonalInfo;
@@ -19,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ info, isDark }) => {
             transition={{ duration: 0.5 }}
           >
             <img
-              src={info.avatar}
+              src={avatar}
               alt={info.name}
               className="rounded-full w-full h-full object-cover shadow-lg border-4 border-amber-500"
             />

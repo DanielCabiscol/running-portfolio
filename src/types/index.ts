@@ -18,7 +18,6 @@ export interface Race {
 export interface PersonalInfo {
   name: string;
   bio: string;
-  avatar: string;
   team: string;
   social: {
     instagram: string;

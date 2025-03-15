@@ -3,7 +3,6 @@ import type { Race, PersonalInfo, RunningShoe } from '../types';
 export const personalInfo: PersonalInfo = {
   name: "Daniel Cabiscol",
   bio: "Runner popular desde Diciembre 2022. Antes odiaba correr, ahora lo necesito",
-  avatar: "https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=400&h=400&fit=crop&crop=faces&q=80",
   team: "Fondistes Vilassar de Dalt",
   social: {
     instagram: "https://instagram.com/danielruniverse",
@@ -21,7 +20,7 @@ export const races: Race[] = [
     distance: 5,
     distanceType: '5K',
     terrain: 'road',
-    name: 'Sansilvestre',
+    name: 'La Sansi Masnou',
     location: 'Masnou',
     upcoming: false
   },
@@ -297,7 +296,7 @@ export const races: Race[] = [
     distance: 5,
     distanceType: '5K',
     terrain: 'road',
-    name: 'San Silvestre',
+    name: 'La Sansi Masnou',
     location: 'Masnou',
     upcoming: false
   },
@@ -456,6 +455,90 @@ export const races: Race[] = [
     name: 'Cursa dels Bombers',
     location: 'Barcelona',
     upcoming: false
+  },
+  {
+    id: '3676834386570984638',
+    date: '2024-11-24',
+    time: '01:37:56',
+    pace: '04:38',
+    distance: 21.1,
+    distanceType: 'half-marathon',
+    terrain: 'road',
+    name: 'Mitja Maresme DANI',
+    location: 'Maresme',
+    upcoming: false
+  },
+  {
+    id: '3676834386570983289',
+    date: '2024-12-01',
+    time: '00:42:32',
+    pace: '04:15',
+    distance: 10,
+    distanceType: '10K',
+    terrain: 'road',
+    name: 'Jean Bouin',
+    location: 'Barcelona',
+    upcoming: false
+  },
+  {
+    id: '3676834567570983289',
+    date: '2024-12-15',
+    time: '00:43:22',
+    pace: '04:20',
+    distance: 10,
+    distanceType: '10K',
+    terrain: 'road',
+    name: 'La Sagrera',
+    location: 'Barcelona',
+    upcoming: false
+  },
+  {
+    id: '3676834765470983289',
+    date: '2024-12-26',
+    time: '00:19:37',
+    pace: '03:55',
+    distance: 5,
+    distanceType: '5K',
+    terrain: 'road',
+    name: 'La Sansi Masnou',
+    location: 'Masnou',
+    upcoming: false
+  },
+  {
+    id: '3671234386570983289',
+    date: '2024-12-31',
+    time: '00:41:35',
+    pace: '04:09',
+    distance: 10,
+    distanceType: '10K',
+    terrain: 'road',
+    name: 'Cursa dels Nassos',
+    location: 'Barcelona',
+    upcoming: false
+  },
+  {
+    id: '3676834309120983289',
+    date: '2025-01-26',
+    time: '00:42:30',
+    pace: '04:15',
+    distance: 10,
+    distanceType: '10K',
+    terrain: 'road',
+    name: 'Moritz Sant Antoni',
+    location: 'Barcelona',
+    upcoming: false
+  },
+  {
+    id: '3676834309120983289',
+    date: '2025-02-16',
+    time: '01:34:32',
+    pace: '04:28',
+    distance: 21.1,
+    distanceType: 'half-marathon',
+    terrain: 'road',
+    name: 'Mitja Marató Barcelona',
+    location: 'Barcelona',
+    upcoming: false
   }
 ];
 
@@ -481,7 +564,7 @@ export const runningShoes: RunningShoe[] = [
     brand: 'ASICS',
     type: 'training',
     kilometers: 300,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300',
+    image: 'https://images.asics.com/is/image/asics/1011B974_400_SR_RT_GLB?$sfcc-product$',
     purchaseDate: '2025-01-06'
   },
   {
@@ -490,7 +573,7 @@ export const runningShoes: RunningShoe[] = [
     brand: 'Sauncony',
     type: 'racing',
     kilometers: 300,
-    image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300',
+    image: 'https://cdn.deporvillage.com/cdn-cgi/image/f=auto,q=75,fit=contain,background=white/product/sy-s20755-13_001.jpg',
     purchaseDate: '2024-01-15'
   },
   {
@@ -499,7 +582,7 @@ export const runningShoes: RunningShoe[] = [
     brand: 'ASICS',
     type: 'trail',
     kilometers: 10,
-    image: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300',
+    image: 'https://images.asics.com/is/image/asics/1011B606_003_SR_RT_GLB?$sfcc-product$',
     purchaseDate: '2025-02-01'
   }
 ];
