@@ -29,9 +29,9 @@ function App() {
         <ThemeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
         <HeroSection info={personalInfo} isDark={isDark} />
         <Highlights races={races} isDark={isDark} />
-        <Statistics races={races} isDark={isDark} />
         <UpcomingRaces races={upcomingRaces} isDark={isDark} />
         <RunningShoes shoes={runningShoes} isDark={isDark} />
+        <Statistics races={races} isDark={isDark} />
         <RaceList races={races} isDark={isDark} />
       </div>
     </div>
