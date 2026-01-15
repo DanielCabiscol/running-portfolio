@@ -6,6 +6,7 @@ import { Statistics } from './components/Statistics';
 import { RunningShoes } from './components/RunningShoes';
 import { UpcomingRaces } from './components/UpcomingRaces';
 import { ThemeToggle } from './components/ThemeToggle';
+import { WorkoutsSection } from './components/workouts/WorkoutsSection';
 import { personalInfo, races, runningShoes, upcomingRaces } from './data/data';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Highlights races={races} isDark={isDark} />
         <UpcomingRaces races={upcomingRaces} isDark={isDark} />
         <RunningShoes shoes={runningShoes} isDark={isDark} />
+        <WorkoutsSection isDark={isDark} />
         <Statistics races={races} isDark={isDark} />
         <RaceList races={races} isDark={isDark} />
       </div>
