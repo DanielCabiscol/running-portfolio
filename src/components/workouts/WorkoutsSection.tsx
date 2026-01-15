@@ -7,6 +7,7 @@ import { ChatInterface } from '../chat/ChatInterface';
 import { useStravaActivities } from '../../hooks/useStravaActivities';
 import type { ChatContext, ActivitySummary, StatsSummary } from '../../types/chat';
 import { calculateMonthlyTrend } from '../../utils/statistics';
+import { formatPace } from '../../utils/formatters';
 
 interface WorkoutsSectionProps {
   isDark: boolean;
@@ -30,18 +31,18 @@ export const WorkoutsSection: React.FC<WorkoutsSectionProps> = ({ isDark }) => {
       name: a.name,
       type: a.type,
       date: a.start_date_local,
-      distance: a.distance,
+      distance: Math.round(a.distance),
       time: a.moving_time,
-      pace: a.average_speed,
-      heartrate: a.average_heartrate,
-      elevation: a.total_elevation_gain,
+      pace: formatPace(a.average_speed), // Convert m/s to "mm:ss" per km
+      heartrate: a.average_heartrate ? Math.round(a.average_heartrate) : undefined,
+      elevation: Math.round(a.total_elevation_gain),
     }));
 
     const statsSummary: StatsSummary | null = stats
       ? {
           totalDistance: stats.totalDistance,
           totalActivities: stats.totalActivities,
-          averagePace: stats.averagePace,
+          averagePace: formatPace(stats.averagePace),
           weeklyAverage: {
             distance:
               stats.weeklyStats.length > 0

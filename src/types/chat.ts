@@ -14,19 +14,19 @@ export interface ActivitySummary {
   name: string;
   type: string;
   date: string;
-  distance: number;
-  time: number;
-  pace: number;
+  distance: number; // meters
+  time: number; // seconds
+  pace: string; // "mm:ss" per km
   heartrate?: number;
-  elevation: number;
+  elevation: number; // meters
 }
 
 export interface StatsSummary {
-  totalDistance: number;
+  totalDistance: number; // meters
   totalActivities: number;
-  averagePace: number;
+  averagePace: string; // "mm:ss" per km
   weeklyAverage: {
-    distance: number;
+    distance: number; // km
     activities: number;
   };
   monthlyTrend: 'increasing' | 'stable' | 'decreasing';
