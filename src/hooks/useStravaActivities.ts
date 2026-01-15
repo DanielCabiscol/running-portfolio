@@ -20,73 +20,63 @@ interface UseStravaActivitiesReturn {
   refetch: () => Promise<void>;
 }
 
-export function useStravaActivities(token: string | null): UseStravaActivitiesReturn {
+export function useStravaActivities(): UseStravaActivitiesReturn {
   const [activities, setActivities] = useState<StravaActivity[]>([]);
   const [stats, setStats] = useState<WorkoutStats | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchActivities = useCallback(
-    async (forceRefresh = false) => {
-      if (!token) return;
-
-      // Check cache first
-      if (!forceRefresh) {
-        try {
-          const cached = localStorage.getItem(CACHE_KEY);
-          if (cached) {
-            const { data, timestamp }: CacheEntry = JSON.parse(cached);
-            if (Date.now() - timestamp < CACHE_DURATION) {
-              setActivities(data);
-              setStats(calculateStats(data));
-              return;
-            }
-          }
-        } catch {
-          // Cache parse error, continue with fetch
-        }
-      }
-
-      setIsLoading(true);
-      setLoadingProgress(0);
-      setError(null);
-
+  const fetchActivities = useCallback(async (forceRefresh = false) => {
+    // Check cache first
+    if (!forceRefresh) {
       try {
-        const data = await stravaApi.getAllActivities(token, 10, (loaded) => {
-          setLoadingProgress(loaded);
-        });
-
-        setActivities(data);
-        setStats(calculateStats(data));
-
-        // Update cache
-        localStorage.setItem(
-          CACHE_KEY,
-          JSON.stringify({
-            data,
-            timestamp: Date.now(),
-          })
-        );
-      } catch (err) {
-        const message = err instanceof Error ? err.message : 'Failed to fetch activities';
-        if (message === 'TOKEN_EXPIRED') {
-          setError('Your session has expired. Please reconnect with Strava.');
-        } else {
-          setError(message);
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const { data, timestamp }: CacheEntry = JSON.parse(cached);
+          if (Date.now() - timestamp < CACHE_DURATION) {
+            setActivities(data);
+            setStats(calculateStats(data));
+            setIsLoading(false);
+            return;
+          }
         }
-      } finally {
-        setIsLoading(false);
+      } catch {
+        // Cache parse error, continue with fetch
       }
-    },
-    [token]
-  );
+    }
+
+    setIsLoading(true);
+    setLoadingProgress(0);
+    setError(null);
+
+    try {
+      const data = await stravaApi.getAllActivities(5, (loaded) => {
+        setLoadingProgress(loaded);
+      });
+
+      setActivities(data);
+      setStats(calculateStats(data));
+
+      // Update cache
+      localStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          data,
+          timestamp: Date.now(),
+        })
+      );
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Failed to fetch activities';
+      setError(message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
-    if (token) {
-      fetchActivities();
-    }
-  }, [token, fetchActivities]);
+    fetchActivities();
+  }, [fetchActivities]);
 
   const refetch = useCallback(async () => {
     await fetchActivities(true);
